@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>a.com</title>
+</head>
+<body>
+<style>
+    .message.me::before {
+        content: "Me:> ";
+        font-weight: bold;
+    }
+
+    .message.other::before {
+        content: "Other:> ";
+        font-weight: bold;
+    }
+    .custom-background {
+        background-color: skyblue;
+        width: 350px;
+        height: 250px;
+        padding: 10px;
+        margin-bottom: 10px;
+        margin-top: 50px;
+        margin-left: 200px;
+        display: block;
+        overflow-y: scroll;
+        scroll-behavior: smooth;
+    }
+    .chat-container {
+        display: flex;
+    }
+
+    .chat-box {
+        flex: 1;
+        margin-right: 10px;
+    }
+
+    .message-input {
+        width: 100%;
+        font-color: black;
+        font-size: 15px;
+        background-color: dodgerblue;
+        color: black;
+        height: 25px;
+        border-color: transparent;
+    }
+    .message-input::placeholder {
+        color: black;
+    }
+    .send-button {
+        background-color: transparent;
+        border: none;
+        color: dodgerblue;
+        font-weight: bold;
+        font-size: 15px;
+        opacity: 0.7;
+        cursor: pointer;
+        margin-top: 10px;
+    }
+</style>
+<div class="chat-container">
+    <div id="participantA" class="custom-background">
+        <h2>I am an iframe from: a.com</h2>
+        <h3>ichat</h3>
+        <div id="chatBoxA" class="chat-box"></div>
+        <input type="text" id="messageInputA" class="message-input" placeholder="Chat here…." onkeydown="handleKeyDown(event, 'A')">
+        <button onclick="sendMessage('A')" class="send-button">Send</button>
+    </div>
+
+    <div id="participantB" class="custom-background">
+        <h2>I am an iframe from: b.com</h2>
+        <h3>ichat</h3>
+        <div id="chatBoxB" class="chat-box"></div>
+        <input type="text" id="messageInputB" class="message-input" placeholder="Chat here…." onkeydown="handleKeyDown(event, 'B')">
+        <button onclick="sendMessage('B')" class="send-button">Send</button>
+    </div>
+</div>
+
+<script src="src/chat.js"></script>
+
+</body>
+</html>
